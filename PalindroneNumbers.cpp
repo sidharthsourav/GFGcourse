@@ -3,6 +3,7 @@ using namespace std;
 
 bool PalindroneCheck(int n)
 {
+    if(n>=0 && n<10) return true;   // if a number is a single digit then it will always be palindrone. 
     int rev=0; 
     int number=n;    // rev will be the reverse of number
     while(n!=0)
