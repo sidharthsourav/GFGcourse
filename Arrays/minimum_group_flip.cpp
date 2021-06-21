@@ -13,6 +13,7 @@ int print_groups(int arr[],int size)
     }
     if (arr[size-1]!=arr[0]) cout<<(size-1)<<endl;
 }
+//output will be 0 based indexed array.
 int main()
 {
     int array[]={1,0,1,0,1,1,1,1,1,0,0,0,1,0,1,0,1};
