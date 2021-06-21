@@ -35,7 +35,6 @@ bool subarray_sum_checker(int arr[],int size,int sum)
     }
     return (current_sum==sum);
 }
-
 int main()
 {
     int array[]={12,-89,2,56,89,-23,41,-55};
