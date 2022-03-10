@@ -1,1 +1,1 @@
-# GFGcourse
+# GeeksforGeeks (Data structures & Algorithms)
