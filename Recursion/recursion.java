@@ -110,7 +110,46 @@ class recursion{
         System.out.println(palindrone_check(str,0,str.length()-1));
     }
 
-    //
+    //Sum of digis in a number
+    static int digitsum(int n)
+    {
+        if(n<=0) return n;
+        return (n%10)+digitsum(n/10);
+
+    }
+    static void digit_sum()
+    {
+        System.out.print("Enter the number : ");
+        int n=sc.nextInt();
+        System.out.println(digitsum(n));
+    }
+
+    // Rope cutting problem -> In this problem we are given a rope of n length 
+    // and cuts of length a,b and c we have to return maxzimum number of cuts which 
+    // gives the maximum pieces and rope is divided completely no residue in left of it.
+    static int getCuts(int rope,int a,int b,int c)
+    {
+        if(rope==0) return 0;
+        if(rope<=-1) return -1;
+
+        int res=Math.max(getCuts(rope-a, a, b, c),Math.max(getCuts(rope-b, a, b, c),getCuts(rope-c, a, b, c)));
+        if (res==-1) return -1;
+        return res+1;
+    }
+    static void rope_problem()
+    {
+        System.out.print("Enter the length of the rope : ");
+        int rope=sc.nextInt();
+        System.out.print("Enter cut length a : ");
+        int a= sc.nextInt();
+        System.out.print("Enter cut length b : ");
+        int b= sc.nextInt();
+        System.out.print("Enter cut length c : ");
+        int c= sc.nextInt();
+        System.out.println(getCuts(rope,a,b,c));
+    }
+
+    
     public static void main(String[] args)
     {
         //recursion basic programs
@@ -120,6 +159,8 @@ class recursion{
         System.out.println("4 -> Nth term in fibonacchi series.");
         System.out.println("5 -> Sum of N natural numbers.");
         System.out.println("6 -> String palindrone checker.");
+        System.out.println("7 -> Sum of digis in a number.");
+        System.out.println("8 -> Rope cut Problem using recurssion.");
 
         System.out.print("Enter choice : ");
         int choice=sc.nextInt();
@@ -139,7 +180,10 @@ class recursion{
                     break;
             case 6: palindrone();
                     break;
-            case 7:
+            case 7: digit_sum();
+                    break;
+            case 8: rope_problem();
+                    break;
             default: break;
         }
     }
