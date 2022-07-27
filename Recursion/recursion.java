@@ -69,13 +69,59 @@ class recursion{
         System.out.println(s);
 
     }
+
+    //prints the nth fibonachi number.
+    static int fib(int n)
+    {
+        if(n<=1) return n;
+        return fib(n-1)+fib(n-2);
+    }
+    static void nth_fibonacchi()
+    {
+        int n= sc.nextInt();
+        int res= fib(n);
+        System.out.println(res);
+    }
+
+    //sum of n natural numbers using recursion.
+    //for sum of n natural no.s the formula is n*(n-1)/2 
+    static int sum(int n)
+    {
+        if(n==0) return 0;
+        return n + sum(n-1);
+    }
+    static void natural_Sum()
+    {
+        int n= sc.nextInt();
+        System.out.println(sum(n));
+    }
+
+    //String palindrone using recursion.
+    static boolean palindrone_check(String str, int start, int end)
+    {
+        if(start>=end) return true; 
+        return str.charAt(start)==str.charAt(end) && palindrone_check(str, start+1, end-1);
+    }
+    static void palindrone()
+    {
+        System.out.print("Enter the string : ");
+        sc.nextLine();
+        String str= sc.nextLine();
+        System.out.println(palindrone_check(str,0,str.length()-1));
+    }
+
+    //
     public static void main(String[] args)
     {
         //recursion basic programs
         System.out.println("1 -> For print n to 1.");
         System.out.println("2 -> For print 1 to n.");
         System.out.println("3 -> For print binary representation of a number using recursion.");
+        System.out.println("4 -> Nth term in fibonacchi series.");
+        System.out.println("5 -> Sum of N natural numbers.");
+        System.out.println("6 -> String palindrone checker.");
 
+        System.out.print("Enter choice : ");
         int choice=sc.nextInt();
 
 
@@ -87,8 +133,14 @@ class recursion{
                     break;
             case 3: binary_representation();
                     break;
+            case 4: nth_fibonacchi();
+                    break;
+            case 5: natural_Sum();
+                    break;
+            case 6: palindrone();
+                    break;
+            case 7:
             default: break;
         }
-
     }
 }
