@@ -149,7 +149,45 @@ class recursion{
         System.out.println(getCuts(rope,a,b,c));
     }
 
-    
+    //Generate subsets of a string in numbers asuming all character as disnict.Q                                                                                                                                                                                                                                                                                                                                                                                           
+    //To calulate no. of subsets in a string that is equal to pow(2,n) 
+    /*
+     * Theory of this problem.
+     * we first start with and empty sting and make a choice of adding a element to it
+     * we repeat this step for each element in the string 
+     * for example : abc
+     * "" : empty string.
+     * add a or not then two stings -> empty and a
+     * these both will call for b to be added or not and this will continue.
+     * after each decision we increment i and when i==length of the sting 
+     * recursion ends this is the base case. look at the recusion tree below to understand it better.
+     * 
+     * 
+     *                  ""                         i=0
+     *         ""               a                  i=1
+     *     ""        b       a       ab            i=2
+     * ""      c   b   bc  a   ac  ab    abc       i=3 here i is equal to the string length so 
+     *                                                 so strings will return they are the subsets
+     *            this is the recursin tree.
+     */
+    static void subsets(String str, String curr, int i)
+    {
+        if(i==str.length())
+        {
+            System.out.print(curr+" ");
+            return;
+        }
+        subsets(str,curr,i+1);
+        subsets(str,curr+str.charAt(i),i+1);
+    }
+    static void subset_problem()
+    {
+        sc.nextLine();
+        System.out.print("Enter the string : ");
+        String s = sc.nextLine();
+        String curr="";
+        subsets(s, curr, 0);
+    }   
     public static void main(String[] args)
     {
         //recursion basic programs
@@ -161,6 +199,7 @@ class recursion{
         System.out.println("6 -> String palindrone checker.");
         System.out.println("7 -> Sum of digis in a number.");
         System.out.println("8 -> Rope cut Problem using recurssion.");
+        System.out.println("9 -> Generate Subset of a string problem.");
 
         System.out.print("Enter choice : ");
         int choice=sc.nextInt();
@@ -184,6 +223,9 @@ class recursion{
                     break;
             case 8: rope_problem();
                     break;
+            case 9: subset_problem();
+                    break;
+            case 10: 
             default: break;
         }
     }
