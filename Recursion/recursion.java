@@ -188,6 +188,55 @@ class recursion{
         String curr="";
         subsets(s, curr, 0);
     }   
+    
+    //Tower of Hanoi Problem.
+    // apporach : move n-1 disks to adjaject tower from therer all disks can be placed in final destination.
+    static void tower_of_hanoi(int n, char a, char b, char c)
+    {
+        if(n==1)
+        {
+            System.out.println("Move disk "+1+" from "+a+" to "+c);
+            return;
+        }
+        tower_of_hanoi(n-1, a, c, b);
+        System.out.println("Move disk "+n+" from "+a+" to "+c);
+        tower_of_hanoi(n-1, b, a, c);
+    }
+    static void tower_of_hanoi_problem()
+    {
+        System.out.print("Enter number of disks : ");
+        int n=sc.nextInt();
+        char a='a', b='b', c='c';
+        tower_of_hanoi(n, a, b, c);
+    }
+
+    //Joseph problem.
+    //The problem is tha n person is siting around a circular table at each kth place 
+    //the person will be killed till only one survior is left after killing kth person gun
+    // is shifted to the next person who was killed.
+    // Answer : by generalising this problem we found that kth person will always survive
+    //          by 0 based indexing so the final answer would be 1+ if we want the 1-based indexing.
+    //          we have to run this recursive solution for n-1 times and add k value by using modular
+    //          we solved this problem for circular.
+     
+    static int Joseph(int n,int k)
+    {
+        if(n==1) return 0;
+        else
+        {
+            return (Joseph(n-1, k)+k)%n;
+        }
+    }
+    static void Joseph_problem()
+    {
+        System.out.print("Enter the no. of people : ");
+        int n= sc.nextInt();
+        System.out.print("Enter the k value : ");
+        int k=sc.nextInt();
+        System.out.println(Joseph(n,k)+1);
+    }
+
+    //
     public static void main(String[] args)
     {
         //recursion basic programs
@@ -200,6 +249,8 @@ class recursion{
         System.out.println("7 -> Sum of digis in a number.");
         System.out.println("8 -> Rope cut Problem using recurssion.");
         System.out.println("9 -> Generate Subset of a string problem.");
+        System.out.println("10 -> Tower of honoi problem.");
+        System.out.println("11 -> Josheph Problem.");
 
         System.out.print("Enter choice : ");
         int choice=sc.nextInt();
@@ -225,7 +276,10 @@ class recursion{
                     break;
             case 9: subset_problem();
                     break;
-            case 10: 
+            case 10: tower_of_hanoi_problem();
+                    break;
+            case 11: Joseph_problem();
+                    break;
             default: break;
         }
     }
