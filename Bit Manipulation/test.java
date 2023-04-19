@@ -9,6 +9,6 @@ public class test
             s=s.substring(0, x);
         }
         System.out.println(s);
-        boolean
+        
     }
 }
