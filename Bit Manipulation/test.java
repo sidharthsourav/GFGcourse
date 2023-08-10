@@ -9,6 +9,22 @@ public class test
             s=s.substring(0, x);
         }
         System.out.println(s);
-        boolean
+        s.compareTo(s);
+
+        int x=5;
+        for(int i=0;i<x;i++)
+        {
+            if(i==0 || i==x-1)
+            {
+                for(int j=0;j<x;j++) System.out.print("* ");
+                System.out.print("\n");
+            }
+            else{
+                System.out.print("* ");
+                for(int j=1;j<x-1;j++) System.out.print("  ");
+                System.out.println("*");
+            }
+        }
+        
     }
 }
